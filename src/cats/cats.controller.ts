@@ -25,11 +25,11 @@ export class CatsController {
     throw new HttpException('You cannot create cats', 423);
   }
 
-  @Delete()
-  deleteCat(@Req() catId: string) {
+  @Delete(':id')
+  deleteCat(@Param('id') id: string) {
     //error del servidor
     throw new HttpException(
-      'You cannot create cats',
+      'Upps cats are too powerfull to be deleted, server crashed',
       HttpStatus.INTERNAL_SERVER_ERROR,
     );
   }
